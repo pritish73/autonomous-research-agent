@@ -1,20 +1,60 @@
 # Autonomous Research Agent
 
-An AI-powered research assistant that automates the process of reading, analyzing, and understanding research papers. The system is designed to process academic literature, extract relevant information, and serve as the foundation for advanced capabilities such as semantic search, literature review generation, research gap detection, and multi-agent research workflows.
+An AI-powered research assistant that automates the process of reading, processing, and understanding research papers. The system converts academic documents into searchable semantic representations, forming the foundation for semantic search, Retrieval-Augmented Generation (RAG), literature review generation, and research gap detection.
 
 ## Features
 
-- Read multiple research papers from a folder
-- Extract text from PDF documents
-- Display paper metadata
-- Count pages automatically
-- Generate content previews
-- Process multiple papers in batch
+- Extract text from PDF research papers
+- Process multiple papers automatically
+- Split papers into semantic chunks
+- Generate vector embeddings using transformer models
+- Prepare documents for semantic search and RAG workflows
+- Scalable architecture for future multi-agent research systems
 
-## Technologies
+
+
+## Technologies Used
 
 - Python
 - PyMuPDF
+- Sentence Transformers
+- PyTorch
+- FAISS
+- Hugging Face Transformers
+
+## Project Architecture
+
+```text
+Research Papers (PDFs)
+           ↓
+      Text Extraction
+           ↓
+      Text Chunking
+           ↓
+   Embedding Generation
+           ↓
+      Vector Database
+           ↓
+      Semantic Search
+           ↓
+        LLM Layer
+           ↓
+      Research Agent
+```
+
+## Current Capabilities
+
+### PDF Processing
+- Read research papers from a local directory
+- Extract raw text from PDF documents
+
+### Chunking Engine
+- Split large research papers into manageable chunks
+- Preserve contextual continuity using overlapping chunks
+
+### Embedding Engine
+- Convert text chunks into dense vector representations
+- Enable semantic understanding and similarity search
 
 ## Project Structure
 
@@ -22,29 +62,28 @@ An AI-powered research assistant that automates the process of reading, analyzin
 Autonomous Research Agent/
 │
 ├── papers/
+├── data/
+│   ├── chunks/
+│   └── embeddings/
+│
+├── pdf_reader.py
+├── chunker.py
+├── embedder.py
 ├── main.py
 ├── README.md
 └── .gitignore
 ```
 
-## Sample Output
-
-```text
-FILE : 1706.03762v7.pdf
-TITLE: Attention Is All You Need
-PAGES: 15
-```
-
 ## Future Enhancements
 
-- Text Chunking
-- Embedding Generation
-- Vector Database Integration
-- Semantic Search
+- FAISS Vector Database Integration
+- Semantic Search Engine
 - Research Paper Question Answering
 - Multi-Paper Comparison
+- Literature Review Generation
 - Research Gap Detection
-- Multi-Agent Research Automation
+- Multi-Agent Research Workflows
+- Autonomous Research Report Generation
 
 ## Author
 
