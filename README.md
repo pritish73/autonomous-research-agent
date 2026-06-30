@@ -1,130 +1,303 @@
-# Autonomous Research Agent
+# 🧠 Autonomous Research Agent
 
-An AI-powered research assistant that processes academic research papers and enables semantic search using transformer-based embeddings and vector databases. The system converts research documents into searchable knowledge representations, forming the foundation for Retrieval-Augmented Generation (RAG), literature review automation, and research gap detection.
+An AI-powered Research Assistant that can read, understand, retrieve, and answer questions from research papers using Retrieval-Augmented Generation (RAG), FAISS vector search, and a local Llama 3 Large Language Model.
 
-## Features
+Instead of keyword matching, the system performs semantic search over research papers, retrieves the most relevant information, and generates context-aware answers with citations.
 
-- PDF text extraction using PyMuPDF
-- Automatic document chunking
-- Transformer-based embedding generation
-- FAISS vector database integration
-- Semantic search over research papers
-- Multi-paper knowledge retrieval
-- Scalable architecture for future RAG and agentic workflows
+---
 
-## Tech Stack
+# 🚀 Features
 
-- Python
-- PyMuPDF
-- Sentence Transformers
-- PyTorch
-- FAISS
-- Hugging Face Transformers
-- NumPy
+✅ Read multiple research papers automatically
 
-## System Architecture
+✅ Automatic text chunking
 
-```text
-Research Papers (PDFs)
-            ↓
-      Text Extraction
-            ↓
-        Chunking
-            ↓
- Embedding Generation
-            ↓
-      FAISS Index
-            ↓
-     Semantic Search
-            ↓
- Autonomous Research Agent
+✅ Semantic search using Sentence Transformers
+
+✅ FAISS Vector Database
+
+✅ Cached embeddings for faster startup
+
+✅ Cached FAISS index
+
+✅ Local Llama 3 inference using Ollama
+
+✅ Conversational memory
+
+✅ Follow-up question understanding
+
+✅ Context-aware retrieval
+
+✅ Intelligent prompt routing
+
+✅ Literature review generation
+
+✅ Research gap identification
+
+✅ Paper comparison
+
+✅ Research paper summarization
+
+✅ Source attribution
+
+---
+
+# 🏗️ System Architecture
+
+```
+                  Research Papers (PDF/TXT)
+                           │
+                           ▼
+                  Text Extraction
+                           │
+                           ▼
+                     Chunking Engine
+                           │
+                           ▼
+               SentenceTransformer
+                     Embeddings
+                           │
+                           ▼
+                   FAISS Vector DB
+                           │
+                           ▼
+                    User Question
+                           │
+                           ▼
+                 Intent Detection
+                           │
+                           ▼
+              Conversation Manager
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+      New Question                Follow-up Question
+             │                           │
+             ▼                           ▼
+      FAISS Retrieval          Previous Context
+             │                           │
+             └─────────────┬─────────────┘
+                           ▼
+                  Prompt Construction
+                           │
+                           ▼
+                 Ollama (Llama 3)
+                           │
+                           ▼
+                     Final Answer
 ```
 
-## Current Pipeline
+---
 
-```text
-PDF
- ↓
-Text
- ↓
-Chunks
- ↓
-Embeddings
- ↓
-FAISS Vector Database
- ↓
-Semantic Retrieval
+# 📂 Project Structure
+
 ```
-
-## Implemented Components
-
-### PDF Reader
-Extracts textual content from academic research papers.
-
-### Chunking Engine
-Splits large research papers into overlapping chunks for efficient retrieval.
-
-### Embedding Engine
-Generates dense semantic vector representations using transformer-based embedding models.
-
-### Vector Database
-Stores embeddings using FAISS for high-performance similarity search.
-
-### Semantic Search
-Retrieves the most relevant research paper chunks based on meaning rather than keyword matching.
-
-## Example Queries
-
-- What is ReAct?
-- How does self-attention work?
-- What are the limitations of Retrieval-Augmented Generation?
-- What is Toolformer?
-
-## Example Workflow
-
-```text
-User Question
-      ↓
-Question Embedding
-      ↓
-FAISS Similarity Search
-      ↓
-Top Relevant Chunks
-      ↓
-Research Insights
-```
-
-## Project Structure
-
-```text
-Autonomous Research Agent/
+Autonomous-Research-Agent/
 │
-├── papers/
 ├── data/
-│   └── chunks/
+│   ├── papers/
+│   ├── chunks/
+│   ├── embeddings.npy
+│   └── faiss.index
 │
-├── pdf_reader.py
-├── chunker.py
 ├── embedder.py
 ├── vector_store.py
-├── paper_search.py
-├── test_embed.py
-├── test_faiss.py
-├── search_test.py
-├── README.md
-└── .gitignore
+├── conversation_manager.py
+├── intent_router.py
+├── prompts.py
+├── research_agent.py
+│
+├── requirements.txt
+└── README.md
 ```
 
-## Future Roadmap
+---
 
-- Research Paper Question Answering
+# 🧠 Supported Query Types
+
+### General Question Answering
+
+```
+What is ReAct?
+```
+
+---
+
+### Literature Review
+
+```
+Generate a literature review on AI Agents
+```
+
+---
+
+### Comparison
+
+```
+Compare ReAct with Toolformer
+```
+
+---
+
+### Research Gap Analysis
+
+```
+Find research gaps in Retrieval-Augmented Generation
+```
+
+---
+
+### Summarization
+
+```
+Summarize the ReAct paper
+```
+
+---
+
+### Follow-up Questions
+
+```
+What is ReAct?
+
+↓
+
+Summarize it.
+
+↓
+
+Compare it with Toolformer.
+
+↓
+
+Which one is better?
+```
+
+The assistant automatically remembers previous context and resolves follow-up questions without requiring another retrieval step.
+
+---
+
+# ⚙️ Technologies Used
+
+- Python
+- Sentence Transformers
+- FAISS
+- Ollama
+- Llama 3
+- NumPy
+- Regular Expressions
 - Retrieval-Augmented Generation (RAG)
-- Multi-Paper Comparison
-- Literature Review Generation
-- Research Gap Detection
-- Multi-Agent Research Workflows
-- Autonomous Research Report Generation
 
-## Author
+---
+
+# 🔥 Core Components
+
+### Embedding Engine
+
+- SentenceTransformer embeddings
+- Embedding caching
+- Fast semantic search
+
+---
+
+### Vector Database
+
+- FAISS indexing
+- Persistent vector storage
+- Fast nearest-neighbor retrieval
+
+---
+
+### Intent Router
+
+Automatically detects user intent:
+
+- Question Answering
+- Literature Review
+- Comparison
+- Summary
+- Research Gap Analysis
+
+---
+
+### Conversation Manager
+
+Maintains conversational context by:
+
+- Tracking discussion topics
+- Resolving follow-up questions
+- Reusing previous retrieval results
+- Avoiding unnecessary FAISS searches
+
+---
+
+### Prompt Router
+
+Uses specialized prompts for different research tasks instead of relying on a single generic prompt.
+
+---
+
+# 📈 Current Capabilities
+
+- Multiple research paper support
+- Context-aware semantic retrieval
+- Local LLM inference
+- Automatic embedding caching
+- Automatic FAISS index caching
+- Context reuse for follow-up questions
+- Research paper comparison
+- Literature review generation
+- Research gap detection
+- Intelligent prompt selection
+
+---
+
+# 🚀 Future Improvements
+
+- Upload PDFs while the assistant is running
+- Automatic indexing of new papers
+- Automatic topic extraction from retrieved papers
+- Citation highlighting
+- Web interface (Streamlit/FastAPI)
+- Research paper recommendations
+- Multi-document synthesis
+- Export answers as PDF/DOCX
+
+---
+
+# 📷 Example
+
+```
+User:
+What is ReAct?
+
+Assistant:
+ReAct is a reasoning and acting framework that combines language model reasoning with task execution...
+
+Sources:
+2210.03629v3.txt
+
+--------------------------------------------
+
+User:
+Summarize it.
+
+Assistant:
+(Reuses previous context automatically)
+
+--------------------------------------------
+
+User:
+Compare it with Toolformer.
+
+Assistant:
+(Automatically understands "it" refers to ReAct)
+```
+
+---
+
+# 👨‍💻 Author
 
 **Pritish Dutta**
+
+AI • Machine Learning • Computer Vision • Large Language Models • Retrieval-Augmented Generation
