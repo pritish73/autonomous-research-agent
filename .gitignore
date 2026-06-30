@@ -1,8 +1,22 @@
-<<<<<<< HEAD
-papers/
+# Python
 __pycache__/
-=======
-papers/
-__pycache__/
->>>>>>> 530d3912e9f88db0b0d51616663b1c60e2216c33
-*.pyc
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+research_agent/
+
+# IDE
+.vscode/
+.idea/
+
+# FAISS and Embeddings
+data/embeddings.npy
+data/faiss.index
+
+# OS
+.DS_Store
+Thumbs.db
